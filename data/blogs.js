@@ -1,0 +1,42 @@
+export const blogs = [
+  {
+    id: 1,
+    title: "Deploying a Next.js App on AWS Amplify",
+    description: "A step-by-step guide to taking your Next.js application from localhost to a global audience using AWS Amplify.",
+    category: "Tutorials",
+    author: "Alex Jenkins",
+    date: "Aug 10, 2026",
+    readTime: "8 min read",
+    isFeatured: true,
+  },
+  {
+    id: 2,
+    title: "Understanding Serverless Architecture",
+    description: "Why serverless is the future of application development and how to get started with AWS Lambda.",
+    category: "Cloud",
+    author: "Priya Sharma",
+    date: "Jul 22, 2026",
+    readTime: "5 min read",
+    isFeatured: false,
+  },
+  {
+    id: 3,
+    title: "My First AWS Certification Journey",
+    description: "Tips and resources I used to pass the AWS Certified Cloud Practitioner exam in 3 weeks.",
+    category: "Career",
+    author: "David Chen",
+    date: "Jul 15, 2026",
+    readTime: "6 min read",
+    isFeatured: false,
+  },
+  {
+    id: 4,
+    title: "Building an AI Chatbot with Amazon Bedrock",
+    description: "How we used Claude 3 on Amazon Bedrock to build a custom student assistant for our campus.",
+    category: "AI/ML",
+    author: "Samantha Taylor",
+    date: "Jun 30, 2026",
+    readTime: "10 min read",
+    isFeatured: false,
+  }
+];

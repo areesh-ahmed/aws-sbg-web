@@ -1,0 +1,50 @@
+export const resources = [
+  {
+    id: 1,
+    title: "AWS Cloud Practitioner Essentials",
+    description: "Learn the fundamentals of the AWS Cloud, including security, architecture, pricing, and support.",
+    category: "AWS Learning",
+    difficulty: "Beginner",
+    time: "6 Hours",
+  },
+  {
+    id: 2,
+    title: "Serverless Web Application Guide",
+    description: "Step-by-step instructions for building a dynamic web app using Amplify, API Gateway, Lambda, and DynamoDB.",
+    category: "Tutorials",
+    difficulty: "Intermediate",
+    time: "4 Hours",
+  },
+  {
+    id: 3,
+    title: "AWS CLI Command Reference",
+    description: "Comprehensive guide to all AWS Command Line Interface commands and parameters.",
+    category: "Developer",
+    difficulty: "All Levels",
+    time: "Reference",
+  },
+  {
+    id: 4,
+    title: "Cloud Resume Challenge",
+    description: "A multiple-step project that helps you build and deploy a resume on AWS.",
+    category: "Project Guides",
+    difficulty: "Intermediate",
+    time: "20 Hours",
+  },
+  {
+    id: 5,
+    title: "AWS Interview Prep Guide",
+    description: "Common technical questions and concepts to review before interviewing for cloud roles.",
+    category: "Career",
+    difficulty: "All Levels",
+    time: "Ongoing",
+  },
+  {
+    id: 6,
+    title: "SBG Community Discord",
+    description: "Join our active Discord server to ask questions, find project partners, and stay updated.",
+    category: "Community",
+    difficulty: "Beginner",
+    time: "Ongoing",
+  }
+];
