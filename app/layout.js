@@ -2,6 +2,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import IntroLoader from "@/components/IntroLoader";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-grid-pattern text-primary bg-canvas">
+        <IntroLoader />
         <Navbar />
         <main className="flex-grow flex flex-col pt-[80px]">
           {children}
