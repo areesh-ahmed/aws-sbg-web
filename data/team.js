@@ -14,7 +14,7 @@ export const team = [
   },
   {
     id: 2,
-    name: "Sneha Patel",
+    name: "Sanyukta",
     role: "Technical Lead",
     team: "Technical Team",
     bio: "Focused on backend systems and CI/CD pipelines. Enjoys debugging complex Lambda issues.",
@@ -27,10 +27,10 @@ export const team = [
   },
   {
     id: 3,
-    name: "Amit Desai",
+    name: "Sanchit",
     role: "Management Lead",
     team: "Events Team",
-    bio: "Organizing hackathons and workshops to bring the community together.",
+    bio: "Organizing and workshops to bring the community together.",
     skills: ["Management", "Public Speaking", "Community"],
     socials: {
       linkedin: "https://linkedin.com",

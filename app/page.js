@@ -1,7 +1,8 @@
 "use client";
+import { useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowUpRight, Cloud, Users, BookOpen, Award } from "lucide-react";
 import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
 import PixelGraphic from "@/components/PixelGraphic";
@@ -16,6 +17,13 @@ import { blogs } from "@/data/blogs";
 import { resources } from "@/data/resources";
 
 export default function Home() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"]
+  });
+  const bgX = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+
   const featuredEvents = events.slice(0, 4);
   const featuredServices = services.slice(0, 6);
   const featuredBlog = blogs.find(b => b.isFeatured) || blogs[0];
@@ -67,14 +75,38 @@ export default function Home() {
               Connect.
             </motion.h1>
             
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-secondary text-lg lg:text-xl max-w-lg mb-12 leading-relaxed"
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 1 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    delayChildren: 0.6,
+                    staggerChildren: 0.04,
+                  },
+                },
+              }}
+              className="text-secondary text-lg lg:text-xl max-w-lg mb-12 leading-relaxed min-h-[5rem]"
             >
-              A student-led AWS community where builders explore cloud technologies, deploy real-world architectures, and scale together.
-            </motion.p>
+              {"A student-led AWS community where builders explore cloud technologies, deploy real-world architectures, and scale together.".split("").map((char, index) => (
+                <motion.span 
+                  key={index} 
+                  variants={{
+                    hidden: { opacity: 0, display: "none" },
+                    visible: { opacity: 1, display: "inline" }
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+                className="inline-block w-[6px] h-[1.1em] bg-purple ml-1 align-middle"
+              />
+            </motion.div>
             
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
@@ -135,29 +167,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT WE DO */}
-      <section className="py-24">
-        <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[80px]">
-          <SectionHeading 
-            eyebrow="Pillars"
-            title="Learn. Build. Connect. Grow."
-            centered
-          />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* ABOUT THE PROGRAM */}
+      <section ref={targetRef} className="py-24 relative overflow-hidden">
+        <motion.div 
+          style={{ x: bgX }}
+          className="absolute top-10 left-0 text-[28vw] md:text-[22vw] font-black text-primary opacity-[0.04] pointer-events-none select-none z-0 tracking-tighter w-full text-center whitespace-nowrap leading-none"
+        >
+          BUILDERS
+        </motion.div>
+
+        <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[80px] relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] text-purple tracking-widest uppercase mb-4 font-bold relative overflow-hidden">
+              <span className="text-purple">/</span> ABOUT THE PROGRAM
+            </div>
+            <h2 className="text-[32px] md:text-[48px] font-mono font-bold tracking-tight text-primary mb-6">
+              Built by students, for students
+            </h2>
+            <p className="text-secondary text-lg">
+              AWS Student Builder Group at MIT ADT University is a vibrant, student-led community exploring cloud technology, building innovative projects, and growing technical skills together.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 bg-surface border border-subtle p-8 rounded-2xl">
             {[
-              { title: "Learn", desc: "Interactive sessions on core AWS services.", icon: "blue" },
-              { title: "Build", desc: "Hands-on projects and hackathons.", icon: "purple" },
-              { title: "Connect", desc: "Network with peers and industry experts.", icon: "purple" },
-              { title: "Grow", desc: "Prepare for certifications and careers.", icon: "green" },
-            ].map((pillar, i) => (
-              <div key={i} className="bg-surface border border-subtle p-8 hover:border-purple/50 transition-colors group">
-                <div className={`w-12 h-12 rounded bg-${pillar.icon}/10 border border-${pillar.icon}/20 mb-6 flex items-center justify-center`}>
-                   <div className={`w-4 h-4 bg-${pillar.icon}`} />
-                </div>
-                <h3 className="text-xl font-mono font-bold text-primary mb-3">{pillar.title}</h3>
-                <p className="text-secondary text-sm">{pillar.desc}</p>
+              { value: "1100+", label: "ACTIVE BUILDERS" },
+              { value: "5+", label: "MEGA EVENTS" },
+              { value: "5+", label: "WORKSHOPS" },
+              { value: "25+", label: "CHIT-CHAT SESSIONS" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center py-2 relative">
+                {i !== 0 && (
+                  <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-12 bg-subtle"></div>
+                )}
+                <div className="text-3xl md:text-4xl font-mono font-bold text-primary mb-2">{stat.value}</div>
+                <div className="text-[10px] md:text-xs font-mono tracking-widest text-secondary uppercase">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* 4 Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            {[
+              { title: "Cloud, hands-on", desc: "Build real projects on AWS — architecture, deployment, and everything between.", bg: "bg-blue/10", border: "border-blue/20", text: "text-blue", IconItem: Cloud },
+              { title: "A builder community", desc: "Learn alongside curious students and connect with industry practitioners.", bg: "bg-green/10", border: "border-green/20", text: "text-green", IconItem: Users },
+              { title: "Workshops & labs", desc: "Regular technical sessions, guided labs, and certification prep.", bg: "bg-blue/10", border: "border-blue/20", text: "text-blue", IconItem: BookOpen },
+              { title: "Get certified", desc: "Guidance, study groups, and support for AWS certification exams.", bg: "bg-purple/10", border: "border-purple/20", text: "text-purple", IconItem: Award },
+            ].map((card, i) => (
+              <div key={i} className="bg-surface border border-subtle p-6 hover:border-purple/50 transition-colors rounded-2xl group flex flex-col">
+                <div className={`w-12 h-12 rounded-xl ${card.bg} border ${card.border} mb-6 flex items-center justify-center`}>
+                   <card.IconItem size={22} className={card.text} />
+                </div>
+                <h3 className="text-lg font-mono font-bold text-primary mb-3">{card.title}</h3>
+                <p className="text-secondary text-sm leading-relaxed flex-grow">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Mission & CTA */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-surface border border-subtle p-8 md:p-10 rounded-2xl">
+              <div className="text-xs font-mono text-purple uppercase tracking-widest mb-6 font-bold">OUR MISSION</div>
+              <h3 className="text-2xl font-mono font-bold text-primary mb-4 leading-tight">
+                Bridging academic learning and industry practice.
+              </h3>
+              <p className="text-secondary text-sm md:text-base leading-relaxed mb-8">
+                We create a community of cloud builders who learn, ship, and grow together — through practical AWS training, guided labs, and real-world projects.
+              </p>
+              <div className="flex gap-6">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-secondary uppercase tracking-wider font-semibold">
+                  <div className="w-2.5 h-2.5 rounded-full bg-purple"></div> Skill development
+                </div>
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-secondary uppercase tracking-wider font-semibold">
+                  <div className="w-2.5 h-2.5 rounded-full bg-green"></div> Innovation
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-surface to-purple/5 border border-subtle p-8 md:p-10 rounded-2xl flex flex-col justify-center relative overflow-hidden group">
+              <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-purple/10 rounded-full blur-3xl group-hover:bg-purple/20 transition-colors duration-500"></div>
+              <h3 className="text-2xl font-mono font-bold text-primary mb-4 relative z-10">Ready to build?</h3>
+              <p className="text-secondary text-sm md:text-base mb-8 relative z-10 max-w-sm">
+                Start your cloud journey with us and become part of the next generation of builders on campus.
+              </p>
+              <div className="relative z-10">
+                <a href="#" className="inline-flex items-center justify-center px-6 py-3.5 font-bold text-squid-ink bg-purple font-mono text-[13px] tracking-wide uppercase transition-all hover:bg-purple/90 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] group/btn">
+                  Join the community
+                  <ArrowUpRight size={16} className="ml-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
