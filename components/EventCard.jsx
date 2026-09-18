@@ -1,11 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Clock, User } from "lucide-react";
+import { Calendar, MapPin, Clock, User, Code, MonitorPlay, Mic, UsersRound } from "lucide-react";
 import Badge from "./Badge";
 import Button from "./Button";
 
 export default function EventCard({ event }) {
   const { type, title, date, time, location, speaker, description, isUpcoming } = event;
+
+  const getTypeIcon = () => {
+    switch (type) {
+      case "Hackathon": return <Code size={18} className="text-purple" />;
+      case "Workshop": return <MonitorPlay size={18} className="text-blue" />;
+      case "Talk": return <Mic size={18} className="text-purple" />;
+      case "Meetup": return <UsersRound size={18} className="text-green" />;
+      default: return <Calendar size={18} className="text-purple" />;
+    }
+  };
 
   return (
     <motion.div 
@@ -19,12 +29,9 @@ export default function EventCard({ event }) {
         <Badge variant={type === "Hackathon" ? "purple" : type === "Workshop" ? "blue" : "purple"}>
           {type}
         </Badge>
-        {isUpcoming && (
-          <span className="flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
-          </span>
-        )}
+        <div className="p-2 bg-canvas rounded-lg border border-subtle">
+          {getTypeIcon()}
+        </div>
       </div>
 
       <h3 className="text-xl font-bold text-primary mb-3 font-mono">{title}</h3>

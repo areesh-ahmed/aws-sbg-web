@@ -1,5 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
-import ServiceCard from "@/components/ServiceCard";
+import ServicesLayout from "@/components/ServicesLayout";
 import { services } from "@/data/services";
 
 export const metadata = {
@@ -21,11 +21,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-20 px-6 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
+        <ServicesLayout services={services} />
       </section>
     </div>
   );

@@ -8,6 +8,7 @@ import SectionHeading from "@/components/SectionHeading";
 import PixelGraphic from "@/components/PixelGraphic";
 import EventCard from "@/components/EventCard";
 import ServiceCard from "@/components/ServiceCard";
+import FeaturesCarousel from "@/components/FeaturesCarousel";
 import BlogCard from "@/components/BlogCard";
 import ResourceCard from "@/components/ResourceCard";
 
@@ -207,23 +208,8 @@ export default function Home() {
             ))}
           </div>
 
-          {/* 4 Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-            {[
-              { title: "Cloud, hands-on", desc: "Build real projects on AWS — architecture, deployment, and everything between.", bg: "bg-blue/10", border: "border-blue/20", text: "text-blue", IconItem: Cloud },
-              { title: "A builder community", desc: "Learn alongside curious students and connect with industry practitioners.", bg: "bg-green/10", border: "border-green/20", text: "text-green", IconItem: Users },
-              { title: "Workshops & labs", desc: "Regular technical sessions, guided labs, and certification prep.", bg: "bg-blue/10", border: "border-blue/20", text: "text-blue", IconItem: BookOpen },
-              { title: "Get certified", desc: "Guidance, study groups, and support for AWS certification exams.", bg: "bg-purple/10", border: "border-purple/20", text: "text-purple", IconItem: Award },
-            ].map((card, i) => (
-              <div key={i} className="bg-surface border border-subtle p-6 hover:border-purple/50 transition-colors rounded-2xl group flex flex-col">
-                <div className={`w-12 h-12 rounded-xl ${card.bg} border ${card.border} mb-6 flex items-center justify-center`}>
-                   <card.IconItem size={22} className={card.text} />
-                </div>
-                <h3 className="text-lg font-mono font-bold text-primary mb-3">{card.title}</h3>
-                <p className="text-secondary text-sm leading-relaxed flex-grow">{card.desc}</p>
-              </div>
-            ))}
-          </div>
+          {/* Feature Carousel */}
+          <FeaturesCarousel />
 
           {/* Mission & CTA */}
           <div className="grid md:grid-cols-2 gap-6">
