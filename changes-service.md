@@ -17,6 +17,14 @@ This document records the background, context, and structural modifications made
 - Fetched and parsed the official AWS products directory live from [https://aws.amazon.com/products/](https://aws.amazon.com/products/).
 - Expanded the dataset to **72 official AWS Services** across **12 domain categories**, aligning 1:1 with official AWS product classifications and explanations.
 
+### 4. Phase 3: Home Page Integration
+- Updated [`app/page.js`](file:///c:/Users/vedan/Desktop/Github/aws-sbg-web/app/page.js) to dynamically feature flagship AWS services (`Amazon EC2`, `Amazon S3`, `Amazon Bedrock`, `AWS Lambda`, `Amazon DynamoDB`, `Amazon CloudFront`) across diverse core domains in the home page preview section instead of taking sequential array slices.
+
+### 5. Phase 4: Interactive Card Expansion Animation
+- Updated [`components/ServiceCard.jsx`](file:///c:/Users/vedan/Desktop/Github/aws-sbg-web/components/ServiceCard.jsx) with Framer Motion spring physics animations (`type: "spring", stiffness: 350, damping: 25`) and `AnimatePresence`.
+- Hovering triggers subtle micro-scaling (`whileHover={{ scale: 1.03, y: -4 }}`).
+- Clicking any service card smoothly expands it into a high-impact, enlarged modal view displaying full service descriptions, architecture role, use cases, and direct links to AWS official documentation with keyboard (`ESC`) and backdrop dismiss accessibility.
+
 ---
 
 ## Service Data Schema
