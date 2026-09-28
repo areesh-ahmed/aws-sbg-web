@@ -1,68 +1,115 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { RotateCw, X } from "lucide-react";
 import { EC2Icon, S3Icon, LambdaIcon, RDSIcon, DynamoDBIcon, BedrockIcon } from "./AwsIcons";
-import Badge from "./Badge";
+
+const icons = {
+  Server: EC2Icon,
+  HardDrive: S3Icon,
+  Zap: LambdaIcon,
+  Database: RDSIcon,
+  DatabaseZap: DynamoDBIcon,
+  BrainCircuit: BedrockIcon,
+};
+
+// AWS-style category colors, drawn from the site palette
+const categoryColors = {
+  "Analytics": "#8B5CF6",
+  "Application Integration": "#EC4899",
+  "Artificial Intelligence": "#2DD4BF",
+  "Business Applications": "#F87171",
+  "Compute": "#FF9900",
+  "Databases": "#4DA3FF",
+  "Developer Tools": "#4DA3FF",
+  "Game Tech": "#8B5CF6",
+  "Management & Governance": "#EC4899",
+  "Networking & Content Delivery": "#A78BFA",
+  "Security & Identity": "#F87171",
+  "Storage": "#22C55E",
+};
 
 export default function ServiceCard({ service }) {
   const { name, category, explanation, useCase, icon } = service;
   const [isFlipped, setIsFlipped] = useState(false);
+  const Icon = icons[icon] || EC2Icon;
+  const color = categoryColors[category] || "#8B5CF6";
 
-  const getIcon = () => {
-    switch (icon) {
-      case "Server": return <EC2Icon size={32} className="text-orange" />;
-      case "HardDrive": return <S3Icon size={32} className="text-orange" />;
-      case "Zap": return <LambdaIcon size={32} className="text-orange" />;
-      case "Database": return <RDSIcon size={32} className="text-blue" />;
-      case "DatabaseZap": return <DynamoDBIcon size={32} className="text-blue" />;
-      case "BrainCircuit": return <BedrockIcon size={32} className="text-purple" />;
-      default: return <EC2Icon size={32} className="text-orange" />;
+  const toggle = () => setIsFlipped((f) => !f);
+  const onKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggle();
     }
   };
 
   return (
-    <div 
-      className="h-[300px] w-full group cursor-pointer" 
-      onClick={() => setIsFlipped(!isFlipped)}
-      style={{ perspective: "1000px" }}
+    <div
+      role="button"
+      tabIndex={0}
+      aria-pressed={isFlipped}
+      aria-label={`${name} — ${isFlipped ? "hide" : "show"} details`}
+      onClick={toggle}
+      onKeyDown={onKeyDown}
+      className="h-[300px] w-full group cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-purple"
+      style={{ perspective: "1200px" }}
     >
       <motion.div
-        className="relative w-full h-full transition-transform duration-500"
+        className="relative w-full h-full"
         style={{ transformStyle: "preserve-3d" }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* Front */}
-        <div 
-          className="absolute inset-0 bg-surface border border-subtle p-6 flex flex-col justify-center items-center text-center shadow-sm hover:border-purple/30 hover:shadow-[0_0_15px_rgba(168,85,247,0.1)] transition-all rounded-lg"
+        <div
+          className="absolute inset-0 bg-surface border border-subtle group-hover:border-purple/40 transition-colors p-6 flex flex-col"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div className="absolute top-4 right-4">
-            <Badge variant="subtle">{category}</Badge>
+          <div className="flex items-start justify-between mb-auto">
+            <div
+              className="w-12 h-12 border flex items-center justify-center"
+              style={{ color, background: `${color}14`, borderColor: `${color}33` }}
+            >
+              <Icon size={22} />
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-secondary text-right max-w-[60%] leading-relaxed">
+              {category}
+            </span>
           </div>
-          <div className="p-4 bg-canvas border border-subtle rounded-full mb-4 group-hover:border-purple/30 transition-colors">
-            {getIcon()}
+
+          <h3 className="text-lg font-bold text-primary font-mono leading-snug mb-2 mt-6 group-hover:text-purple transition-colors">
+            {name}
+          </h3>
+          <p className="text-secondary text-sm leading-relaxed line-clamp-2">{explanation}</p>
+
+          <div className="mt-5 pt-4 border-t border-subtle flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-secondary">
+            <span className="group-hover:text-purple transition-colors">View use case</span>
+            <RotateCw size={13} className="group-hover:text-purple group-hover:rotate-90 transition-all duration-300" />
           </div>
-          <h3 className="text-xl font-bold text-primary font-mono mb-2">{name}</h3>
-          <p className="text-secondary text-sm mt-4 px-4 py-1.5 rounded-full bg-canvas border border-subtle group-hover:text-purple transition-colors">
-            Tap to flip
-          </p>
         </div>
 
         {/* Back */}
-        <div 
-          className="absolute inset-0 bg-canvas border border-purple/30 p-6 flex flex-col shadow-[0_0_20px_rgba(168,85,247,0.1)] rounded-lg"
+        <div
+          className="absolute inset-0 bg-canvas border border-purple/40 p-6 flex flex-col"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
-            <div className="flex justify-between items-center mb-4">
-              <h4 className="text-primary font-bold font-mono">{name}</h4>
-              <Badge variant="subtle">{category}</Badge>
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span className="shrink-0 flex" style={{ color }}><Icon size={16} /></span>
+              <h4 className="text-primary font-bold font-mono text-sm truncate">{name}</h4>
             </div>
-            <p className="text-secondary text-sm leading-relaxed mb-4">{explanation}</p>
+            <X size={14} className="text-secondary group-hover:text-primary transition-colors shrink-0" />
           </div>
-          <div className="mt-auto pt-4 border-t border-subtle">
-            <span className="block text-[10px] font-mono text-purple mb-1.5 uppercase tracking-wider font-bold">Use Case</span>
-            <p className="text-primary text-sm font-medium leading-tight">{useCase}</p>
+
+          <p className="text-secondary text-sm leading-normal flex-1 min-h-0 overflow-y-auto pr-1 custom-scrollbar">
+            {explanation}
+          </p>
+
+          <div className="mt-4 pt-4 border-t border-subtle">
+            <span className="flex items-center gap-2 text-[10px] font-mono text-purple mb-2 uppercase tracking-widest font-bold">
+              <span className="w-1.5 h-1.5 bg-purple"></span> Use Case
+            </span>
+            <p className="text-primary text-sm leading-snug">{useCase}</p>
           </div>
         </div>
       </motion.div>
