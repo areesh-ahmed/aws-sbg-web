@@ -20,8 +20,8 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-20 px-6 max-w-5xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {resources.map((resource) => (
             <ResourceCard key={resource.id} resource={resource} />
           ))}

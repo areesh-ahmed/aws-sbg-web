@@ -328,7 +328,7 @@ export default function Home() {
             <Button href="/resources" variant="ghost" icon className="hidden md:flex">Explore Resources</Button>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {featuredResources.map((resource) => (
               <ResourceCard key={resource.id} resource={resource} />
             ))}
