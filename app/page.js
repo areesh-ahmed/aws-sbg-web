@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Cloud, Users, BookOpen, Award } from "lucide-react";
@@ -27,8 +27,17 @@ export default function Home() {
 
   const featuredEvents = events.slice(0, 4);
   const featuredServices = services.slice(0, 6);
-  const featuredBlog = blogs.find(b => b.isFeatured) || blogs[0];
-  const recentBlogs = blogs.filter(b => !b.isFeatured).slice(0, 3);
+  // Start with a deterministic order for SSR, then shuffle on the client
+  const [homeBlogs, setHomeBlogs] = useState(blogs.slice(0, 4));
+  useEffect(() => {
+    const shuffled = [...blogs];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setHomeBlogs(shuffled.slice(0, 4));
+  }, []);
+  const [featuredBlog, ...recentBlogs] = homeBlogs;
   const featuredResources = resources.slice(0, 6);
 
   return (

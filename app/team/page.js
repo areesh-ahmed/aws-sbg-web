@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
+import UniversityTag from "@/components/UniversityTag";
 import TeamCard from "@/components/TeamCard";
 import { team } from "@/data/team";
 
@@ -19,6 +20,7 @@ export default function TeamPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center"
         >
+          <UniversityTag />
           <SectionHeading title="Our Team" subtitle="The Builders" />
           <motion.p 
             initial={{ opacity: 0 }}
