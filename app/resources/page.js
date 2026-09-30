@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import UniversityTag from "@/components/UniversityTag";
 import ResourceCard from "@/components/ResourceCard";
 import { resources } from "@/data/resources";
 
@@ -13,6 +14,7 @@ export default function ResourcesPage() {
       <section className="py-20 md:py-32 px-6 bg-surface relative overflow-hidden border-b border-white/[0.05]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] aspect-square rounded-full bg-blue/5 blur-[120px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
+          <UniversityTag />
           <SectionHeading title="Resources" subtitle="Study & Build" />
           <p className="text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
             Access our curated collection of study guides, practice materials, and starter templates to accelerate your cloud journey.
@@ -20,8 +22,8 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-20 px-6 max-w-5xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {resources.map((resource) => (
             <ResourceCard key={resource.id} resource={resource} />
           ))}

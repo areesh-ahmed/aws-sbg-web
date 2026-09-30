@@ -36,11 +36,11 @@ export default function Navbar() {
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-canvas/80 backdrop-blur-md border-b border-subtle py-4"
-          : "bg-transparent py-6"
+          ? "bg-canvas/90 backdrop-blur-md border-b border-subtle py-4 shadow-lg shadow-black/20"
+          : "bg-canvas/50 backdrop-blur-sm border-b border-subtle/40 py-5"
       )}
     >
-      <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[80px] flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-3 z-50 group">
           <div className="w-8 h-8 relative flex items-center justify-center">
@@ -64,7 +64,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.path}
-                className="relative px-4 py-2 font-mono text-[13px] uppercase tracking-wider"
+                className="relative px-3.5 py-2 font-mono text-[13px] uppercase tracking-wider"
               >
                 <span
                   className={clsx(
@@ -77,7 +77,7 @@ export default function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-2 right-2 h-[2px] bg-purple"
+                    className="absolute -bottom-1 left-2 right-2 h-[2px] bg-purple shadow-[0_0_8px_rgba(139,92,246,0.6)]"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -87,16 +87,16 @@ export default function Navbar() {
         </nav>
 
         {/* Right: Actions */}
-        <div className="hidden md:flex items-center gap-4">
-          <button className="text-secondary hover:text-primary transition-colors p-2" aria-label="Search">
+        <div className="hidden md:flex items-center gap-3">
+          <button className="text-secondary hover:text-primary transition-colors p-2 rounded-sm hover:bg-surface" aria-label="Search">
             <Search size={18} />
           </button>
           <Link
             href="#"
-            className="flex items-center gap-1 bg-purple text-squid-ink px-5 py-2.5 font-mono text-[13px] font-bold tracking-wide uppercase hover:bg-purple/90 transition-all hover:-translate-y-0.5"
+            className="flex items-center gap-1.5 bg-purple text-squid-ink px-4 py-2 rounded-sm font-mono text-[13px] font-bold tracking-wide uppercase hover:bg-purple/90 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(139,92,246,0.4)] hover:-translate-y-0.5 active:translate-y-0"
           >
             Join Community
-            <ArrowUpRight size={16} className="ml-1" />
+            <ArrowUpRight size={16} />
           </Link>
         </div>
 

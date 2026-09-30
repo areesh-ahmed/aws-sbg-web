@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import UniversityTag from "@/components/UniversityTag";
 import EventCard from "@/components/EventCard";
 import { events } from "@/data/events";
 
@@ -13,6 +14,7 @@ export default function EventsPage() {
       <section className="py-20 md:py-32 px-6 bg-surface relative overflow-hidden border-b border-white/[0.05]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] aspect-square rounded-full bg-pink/5 blur-[120px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
+          <UniversityTag />
           <SectionHeading title="Events" subtitle="Learn & Connect" />
           <p className="text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
             Participate in our hands-on workshops, expert tech talks, and competitive hackathons designed to elevate your cloud skills.
