@@ -17,7 +17,7 @@ export default function ServicesPage() {
           <UniversityTag />
           <SectionHeading title="Our Services" subtitle="What We Offer" />
           <p className="text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
-            We offer a variety of services to help students learn, build, and grow their skills in cloud computing and modern tech stacks.
+            AWS provides a variety of services to help students learn, build, and grow their skills in cloud computing and modern tech stacks.
           </p>
         </div>
       </section>

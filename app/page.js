@@ -26,18 +26,12 @@ export default function Home() {
   const bgX = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
 
   const featuredEvents = events.slice(0, 4);
-  const featuredServices = services.slice(0, 6);
-  // Start with a deterministic order for SSR, then shuffle on the client
-  const [homeBlogs, setHomeBlogs] = useState(blogs.slice(0, 4));
-  useEffect(() => {
-    const shuffled = [...blogs];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    setHomeBlogs(shuffled.slice(0, 4));
-  }, []);
-  const [featuredBlog, ...recentBlogs] = homeBlogs;
+  const featuredServiceIds = ["ec2", "s3", "bedrock", "lambda", "dynamodb", "cloudfront"];
+  const featuredServices = featuredServiceIds
+    .map(id => services.find(s => s.id === id))
+    .filter(Boolean);
+  const featuredBlog = blogs.find(b => b.isFeatured) || blogs[0];
+  const recentBlogs = blogs.filter(b => !b.isFeatured).slice(0, 3);
   const featuredResources = resources.slice(0, 6);
 
   return (
@@ -287,11 +281,11 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[80px]">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <SectionHeading 
-              eyebrow="Technologies"
+              eyebrow="AWS Technologies"
               title="Explore the cloud."
               className="mb-0"
             />
-            <Button href="/services" variant="ghost" icon className="hidden md:flex">Explore Services</Button>
+            <Button href="/services" variant="ghost" icon className="hidden md:flex">Explore All Services</Button>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
