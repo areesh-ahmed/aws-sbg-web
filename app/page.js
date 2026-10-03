@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Cloud, Users, BookOpen, Award } from "lucide-react";
@@ -331,7 +331,7 @@ export default function Home() {
             <Button href="/resources" variant="ghost" icon className="hidden md:flex">Explore Resources</Button>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {featuredResources.map((resource) => (
               <ResourceCard key={resource.id} resource={resource} />
             ))}

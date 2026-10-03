@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
+import UniversityTag from "@/components/UniversityTag";
 import TeamCard from "@/components/TeamCard";
 import { team } from "@/data/team";
 
@@ -19,6 +20,7 @@ export default function TeamPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center"
         >
+          <UniversityTag />
           <SectionHeading title="Our Team" subtitle="The Builders" />
           <motion.p 
             initial={{ opacity: 0 }}
@@ -32,7 +34,7 @@ export default function TeamPage() {
       </section>
 
       <section className="py-20 px-6 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {team.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
