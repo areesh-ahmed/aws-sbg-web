@@ -99,39 +99,6 @@ export const events = [
       { src: "/events/Prompttoproduction/image1.png", caption: "Kiro × AWS Workshop Highlights - 1" },
       { src: "/events/Prompttoproduction/image2.png", caption: "Kiro × AWS Workshop Highlights - 2" }
     ]
-  },
-  {
-    id: "cloudbuild-2026",
-    type: "Hackathon",
-    title: "CloudBuild 2026",
-    date: "Sep 15, 2026",
-    time: "10:00 AM - 6:00 PM",
-    location: "MIT ADT Campus",
-    speaker: "SBG Core Team",
-    description: "A 8-hour hackathon focused on building serverless applications using AWS Lambda and API Gateway.",
-    isUpcoming: true,
-  },
-  {
-    id: "intro-ec2-vpc",
-    type: "Workshop",
-    title: "Intro to EC2 & VPC",
-    date: "Oct 05, 2026",
-    time: "2:00 PM - 4:00 PM",
-    location: "Virtual (Chime)",
-    speaker: "Jane Doe (AWS Solutions Architect)",
-    description: "Learn the fundamentals of Amazon EC2 and Virtual Private Cloud. Hands-on deployment included.",
-    isUpcoming: true,
-  },
-  {
-    id: "ml-bedrock",
-    type: "Talk",
-    title: "Machine Learning with Bedrock",
-    date: "Oct 20, 2026",
-    time: "4:00 PM - 5:30 PM",
-    location: "Auditorium",
-    speaker: "John Smith",
-    description: "An overview of how generative AI applications can be built seamlessly using Amazon Bedrock.",
-    isUpcoming: true,
   }
 ];
 
