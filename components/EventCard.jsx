@@ -9,7 +9,7 @@ import {
 import Badge from "./Badge";
 import Button from "./Button";
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, compact = false }) {
   const {
     type, title, subtitle, date, time, location, speaker, chiefGuest,
     facultyCoordinator, guestSpeakers, organizingTeam, attendees,
@@ -74,8 +74,8 @@ export default function EventCard({ event }) {
         {/* Top subtle highlight */}
         <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple/0 via-purple/50 to-purple/0 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
 
-        {/* IMAGE BANNER PREVIEW ON CARD */}
-        {images && images.length > 0 && (
+        {/* IMAGE BANNER PREVIEW ON CARD (Shown when not compact) */}
+        {!compact && images && images.length > 0 && (
           <div className="relative w-full h-44 bg-canvas overflow-hidden border-b border-subtle">
             <img
               src={typeof images[0] === "string" ? images[0] : images[0].src}

@@ -264,9 +264,9 @@ export default function Home() {
             <Button href="/events" variant="ghost" icon className="hidden md:flex">View All Events</Button>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {featuredEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+              <EventCard key={event.id} event={event} compact={true} />
             ))}
           </div>
           

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import EventCard from "@/components/EventCard";
+import EmptyState from "@/components/EmptyState";
 import { events } from "@/data/events";
 import { Sparkles, Calendar, Award, Users } from "lucide-react";
 
@@ -88,11 +89,20 @@ export default function EventsPage() {
         </div>
 
         {/* EVENTS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
+        {filteredEvents.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {filteredEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState
+            title="No Upcoming Events Right Now"
+            description="We are currently planning our next exciting hackathons and workshops. Check out our past event recaps above!"
+            actionLabel="View All Past Events"
+            onAction={() => setFilter("past")}
+          />
+        )}
       </section>
     </div>
   );
