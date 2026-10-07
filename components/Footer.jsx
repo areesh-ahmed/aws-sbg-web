@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Globe, Camera, Link as LinkIcon, Video, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { communityLinks } from "@/data/community";
+import { socialIcons } from "./SocialIcons";
 
 export default function Footer() {
   return (
@@ -40,18 +42,21 @@ export default function Footer() {
               A student-led cloud community focused on learning, building projects, hosting events, and sharing technical resources.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-secondary hover:text-purple transition-colors p-2 -ml-2">
-                <LinkIcon size={20} />
-              </a>
-              <a href="#" className="text-secondary hover:text-purple transition-colors p-2">
-                <Camera size={20} />
-              </a>
-              <a href="#" className="text-secondary hover:text-purple transition-colors p-2">
-                <Globe size={20} />
-              </a>
-              <a href="#" className="text-secondary hover:text-purple transition-colors p-2">
-                <Video size={20} />
-              </a>
+              {communityLinks.map(({ id, name, url }, i) => {
+                const Icon = socialIcons[id];
+                return (
+                  <a
+                    key={id}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={name}
+                    className={`text-secondary hover:text-purple transition-colors p-2 ${i === 0 ? "-ml-2" : ""}`}
+                  >
+                    <Icon size={20} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
