@@ -16,10 +16,10 @@ export const events = [
       "Dr. Shraddha Phansalkar (Associate Dean - Academics)"
     ],
     organizingTeam: ["Giriraj Baheti", "Ayush Pedwal", "Heramb Inamke", "Rushikesh Patil", "Shambhavi Mishra"],
-    attendees: 120,
+    attendees: 150,
     registrations: 250,
     description: "A comprehensive 3-day technical bootcamp introducing students to cloud computing fundamentals, core AWS services, and certification pathways.",
-    recap: "Over 120 attendees participated across 3 days. 25 students received 100% exam vouchers for AWS Certified Cloud Practitioner & AI Practitioner exams along with $2,500 total in AWS credits ($100 each).",
+    recap: "Over 150 attendees participated across 3 days. 25 students received 100% exam vouchers for AWS Certified Cloud Practitioner & AI Practitioner exams along with $2,500 total in AWS credits ($100 each).",
     isUpcoming: false,
     highlights: [
       "25 Exam Vouchers (100% covered) for AWS Certified Cloud Practitioner & AI Practitioner exams",
@@ -57,9 +57,9 @@ export const events = [
     location: "Google Meet (Virtual)",
     speaker: "Giriraj Baheti, Raphael D'Almeida, Abhijeet Pawar & Team",
     facultyCoordinator: "Prof. Dr. Rajani Sajjan",
-    attendees: 75,
+    attendees: 80,
     description: "An interactive workshop guiding participants through turning prompt-driven ideas into functional applications using Kiro SPEC and deploying them live on AWS S3.",
-    recap: "75+ participants completed the end-to-end workflow: Plan → Build with Kiro → Generate Site → Create S3 Bucket → Deploy to live public endpoints.",
+    recap: "80+ participants completed the end-to-end workflow: Plan → Build with Kiro → Generate Site → Create S3 Bucket → Deploy to live public endpoints.",
     isUpcoming: false,
     winners: [
       { rank: "1st Place", name: "Krishnakumar S. Rathod" },
