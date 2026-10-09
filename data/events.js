@@ -99,6 +99,103 @@ export const events = [
       { src: "/events/Prompttoproduction/image1.png", caption: "Kiro × AWS Workshop Highlights - 1" },
       { src: "/events/Prompttoproduction/image2.png", caption: "Kiro × AWS Workshop Highlights - 2" }
     ]
+  },
+  {
+    id: "aws-student-community-day-pune",
+    type: "Conference",
+    title: "AWS Student Community Day Pune 2025",
+    subtitle: "Where Academia Meets Cloud Excellence | MIT ADT × MIT WPU",
+    date: "SCD 2025",
+    time: "Full Day Flagship Event",
+    location: "MIT ADT University Auditorium, Pune",
+    speaker: "Vishal Alhat, Mayur Bhagia, Mohit Pandit, Abhinivesh Jain, Shubham Londhe & Industry Experts",
+    chiefGuest: "Mr. Vishal Alhat (AWS Hero & Developer Advocate), Dr. Mangesh Karad, Dr. Sunita Karad, Dr. Ganesh Pathak",
+    facultyCoordinator: "Prof. Dr. Rajani Sajjan",
+    guestSpeakers: [
+      "Vishal Alhat (AWS Hero & Developer Advocate)",
+      "Mayur Bhagia (Solutions Architect at AWS)",
+      "Mohit Pandit (Sr. Operations Manager, AWS)",
+      "Abhinivesh Jain (AWS Ambassador & Golden Jacket Holder)",
+      "Shubham Londhe (Developer Advocate, AWS)",
+      "Ganesh Taware (Data Integration Manager & ETL Architect)",
+      "Rahul Shivalkar (Lead DevOps Engineer at EPAM)",
+      "Ameya Vaideya (Founder & Principal Architect, Dreamworld Tech)",
+      "Sankalp Paranjpe (DevSecOps Engineer, Intangles Lab)",
+      "Shobhit Verma (Systems & SRE Manager)",
+      "Santosh Mamil (Associate Director at Capgemini)"
+    ],
+    organizingTeam: ["Parth Shah (AWS Cloud Club Captain)", "AWS SBG & Cloud Club MIT ADT Core Team"],
+    attendees: 500,
+    description: "A flagship cloud conference bringing together students, industry leaders, AWS Heroes, and Solutions Architects across India for deep-dive technical sessions, 3 parallel tracks, and hands-on GenAI & cloud workshops.",
+    recap: "Massive community gathering featuring 11+ keynote sessions, 3 parallel tracks (Data, Advanced Security, Cloud Adoption), hands-on serverless labs, student leadership panel, live band music performance, Red Bull activities, and prize distribution to top quiz winners.",
+    isUpcoming: false,
+    highlights: [
+      "Keynotes by AWS Hero Vishal Alhat, Solutions Architect Mayur Bhagia, and Sr. Operations Manager Mohit Pandit",
+      "3 Parallel Tracks: Data & Analytics, Advanced Cloud Security, and Cloud Adoption & Real-World Use Cases",
+      "Hands-on Workshop: Event-Driven Three-Tier Architecture on AWS (S3, RDS, Lambda) by Rahul Shivalkar",
+      "GenAI Security & OWASP Top 10 for LLMs session by Sankalp Paranjpe using Amazon Bedrock Guardrails",
+      "Agentic Web & Bedrock AgentCore integration talk by Shubham Londhe",
+      "Student Leadership Panel: 'Bridging Academia and Industry' moderated by Prof. Dr. Rajani Sajjan",
+      "Interactive technical quiz with goodies and prize distribution to top 5 winners"
+    ],
+    flow: [
+      {
+        title: "Registrations & Breakfast Networking",
+        time: "Morning",
+        description: "Registration pass distribution, informal networking breakfast among students, faculty, and industry leaders."
+      },
+      {
+        title: "Inauguration, Welcome Address & Lamp Lighting",
+        speaker: "Dr. Prof. Rajani Sajjan, Dr. Mangesh Karad & Dignitaries",
+        description: "Traditional lamp lighting and opening remarks emphasizing cloud empowerment and industry-aligned learning."
+      },
+      {
+        title: "Keynote 1: Evolution of Software & Agentic AI",
+        speaker: "Vishal Alhat (AWS Hero & Developer Advocate)",
+        description: "Explored evolution from manual coding to Agentic AI, introducing Kiro AI and AWS Builder Center."
+      },
+      {
+        title: "Keynote 2: Deploying GenAI Bedrock Applications at Scale",
+        speaker: "Mayur Bhagia (Solutions Architect at AWS)",
+        description: "Overview of Amazon Bedrock application lifecycle, security compliance, and multi-agent system demonstration."
+      },
+      {
+        title: "Keynote 3: Cloud Industry Evolution & Advanced AWS Services",
+        speaker: "Mohit Pandit (Sr. Operations Manager at AWS)",
+        description: "Deep dive into infrastructure to intelligence transformation, GenAI vs traditional ML, and enterprise AWS adoption."
+      },
+      {
+        title: "Keynote 4: Journey to AWS Ambassador & Cloud Excellence",
+        speaker: "Abhinivesh Jain (AWS Golden Jacket Holder)",
+        description: "Personal career journey, growth mindset, and real-world value of AWS certifications."
+      },
+      {
+        title: "Parallel Tracks: Data, Security & Real-World Cloud Use Cases",
+        speaker: "Ganesh Taware, Rahul Shivalkar, Ameya Vaideya, Sankalp Paranjpe, Shobhit Verma, Santosh Mamil",
+        description: "Simultaneous tracks covering ETL pipelines, 3-Tier Serverless Architecture, Day 1 Cloud Security, Bedrock Guardrails, and On-Prem to Cloud Migration."
+      },
+      {
+        title: "Agentic Web & Autonomous Systems",
+        speaker: "Shubham Londhe (Developer Advocate at AWS)",
+        description: "Architecture of intelligent autonomous agents using MCP, Strand Agent, and Bedrock AgentCore with Lambda."
+      },
+      {
+        title: "Captains' Session & Panel Discussion",
+        speaker: "AWS Cloud Captains Across India & Panelists",
+        description: "Panel on 'Bridging Academia and Industry' featuring Mangesh Bedekar, Dr. Sunita Karad, Smita Singh, Pratik Sharma, and Cloud Captains from MIT-ADT, MIT-WPU, PICT, VIT Bhopal, MJCET."
+      },
+      {
+        title: "Quiz, Live Music & Closing Ceremony",
+        speaker: "Parth Shah (AWS Cloud Club Captain)",
+        description: "Interactive technical quiz with prizes to top 5 winners, Red Bull activity, Bleeding Souls band performance, and closing remarks."
+      }
+    ],
+    images: [
+      { src: "/events/scd2025/image1.png", caption: "AWS Student Community Day Pune 2025 Highlights - 1" },
+      { src: "/events/scd2025/image2.png", caption: "AWS Student Community Day Pune 2025 Highlights - 2" },
+      { src: "/events/scd2025/image3.png", caption: "AWS Student Community Day Pune 2025 Highlights - 3" },
+      { src: "/events/scd2025/image4.png", caption: "AWS Student Community Day Pune 2025 Highlights - 4" }
+    ]
   }
 ];
 
