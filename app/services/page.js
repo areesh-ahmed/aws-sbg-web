@@ -15,7 +15,7 @@ export default function ServicesPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] aspect-square rounded-full bg-green/5 blur-[120px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
           <UniversityTag />
-          <SectionHeading title="Our Services" subtitle="What We Offer" />
+          <SectionHeading title="AWS Services" subtitle="What AWS Offer" />
           <p className="text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-6">
             AWS provides a variety of services to help students learn, build, and grow their skills in cloud computing and modern tech stacks.
           </p>

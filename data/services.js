@@ -1,5 +1,5 @@
 export const services = [
-  // --- ANALYTICS ---
+  
   {
     id: "athena",
     name: "Amazon Athena",
