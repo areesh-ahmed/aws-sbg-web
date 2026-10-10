@@ -14,8 +14,8 @@ export const communityLinks = [
   {
     id: "instagram",
     name: "Instagram",
-    description: "@awsccmitadtu",
-    url: "https://www.instagram.com/awsccmitadtu",
+    description: "@aws_sbg_mitadtu",
+    url: "https://www.instagram.com/aws_sbg_mitadtu?utm_source=ig_web_button_share_sheet&exln=ZDNlZDc0MzIxNw==",
   },
 ];
 
