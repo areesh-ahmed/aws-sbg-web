@@ -5,6 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import UniversityTag from "@/components/UniversityTag";
 import PixelGraphic from "@/components/PixelGraphic";
 import { blogs } from "@/data/blogs";
+import JoinCommunity from "@/components/JoinCommunity";
 import { services } from "@/data/services";
 import { resources } from "@/data/resources";
 
@@ -212,12 +213,11 @@ export default function AboutPage() {
               Start your cloud journey with us and become part of the next generation of builders on campus.
             </p>
           </div>
-          <a
-            href="#"
-            className="relative shrink-0 inline-flex items-center gap-2 bg-purple text-squid-ink px-6 py-3.5 rounded-sm font-mono text-[13px] font-bold tracking-wide uppercase hover:bg-purple/90 transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]"
+          <JoinCommunity
+            className="relative shrink-0 inline-flex items-center gap-2 bg-purple text-squid-ink px-6 py-3.5 rounded-sm font-mono text-[13px] font-bold tracking-wide uppercase hover:bg-purple/90 transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] cursor-pointer"
           >
             Join the Community <ArrowUpRight size={16} />
-          </a>
+          </JoinCommunity>
         </div>
       </section>
     </div>

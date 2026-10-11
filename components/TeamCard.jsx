@@ -1,42 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { Globe, Link as LinkIcon } from "lucide-react";
 import Badge from "./Badge";
 
 export default function TeamCard({ member }) {
-  const { name, role, bio, skills, socials, image } = member;
+  const { name, role, bio, skills, image } = member;
 
   return (
     <motion.div
       whileHover={{ y: -4 }}
-      className="bg-surface border border-subtle hover:border-purple/40 p-6 flex flex-col h-full group transition-all duration-300 relative overflow-hidden"
+      className="bg-surface border border-subtle hover:border-purple/40 p-6 flex flex-col items-center text-center h-full w-full group transition-all duration-300 relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2 z-10">
-        {socials?.linkedin && (
-          <a
-            href={socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-secondary hover:text-purple transition-colors p-1"
-            aria-label={`${name}'s LinkedIn`}
-          >
-            <LinkIcon size={18} />
-          </a>
-        )}
-        {socials?.github && (
-          <a
-            href={socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-secondary hover:text-purple transition-colors p-1"
-            aria-label={`${name}'s GitHub`}
-          >
-            <Globe size={18} />
-          </a>
-        )}
-      </div>
-
-      <div className="mb-6 w-24 h-24 bg-elevated rounded-full border-2 border-subtle relative overflow-hidden group-hover:border-purple/60 transition-colors shadow-md flex-shrink-0">
+      <div className="mb-6 w-24 h-24 bg-elevated rounded-full border-2 border-subtle relative overflow-hidden group-hover:border-purple/60 transition-colors shadow-md flex-shrink-0 mx-auto">
         {image ? (
           <img
             src={image}
@@ -56,14 +30,14 @@ export default function TeamCard({ member }) {
         )}
       </div>
 
-      <h3 className="text-xl font-bold text-primary mb-1 font-mono tracking-tight">{name}</h3>
-      <p className="text-purple text-xs font-mono tracking-wider uppercase font-semibold mb-3">{role}</p>
+      <h3 className="text-xl font-bold text-primary mb-1 font-mono tracking-tight text-center">{name}</h3>
+      <p className="text-purple text-xs font-mono tracking-wider uppercase font-semibold mb-3 text-center">{role}</p>
 
-      <p className="text-secondary text-sm mb-6 flex-grow leading-relaxed">
+      <p className="text-secondary text-sm mb-6 flex-grow leading-relaxed text-center">
         {bio}
       </p>
 
-      <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-subtle">
+      <div className="flex flex-wrap justify-center gap-2 mt-auto pt-4 border-t border-subtle w-full">
         {skills?.map((skill) => (
           <Badge key={skill} variant="subtle">{skill}</Badge>
         ))}
