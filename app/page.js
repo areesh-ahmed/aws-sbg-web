@@ -15,8 +15,6 @@ import ResourceCard from "@/components/ResourceCard";
 import { events } from "@/data/events";
 import { services } from "@/data/services";
 import { blogs } from "@/data/blogs";
-import { builderCenterUrl } from "@/data/community";
-import JoinCommunity from "@/components/JoinCommunity";
 import { resources } from "@/data/resources";
 
 export default function Home() {
@@ -120,12 +118,17 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
-              <JoinCommunity className="inline-flex items-center justify-center whitespace-nowrap px-7 py-3.5 font-bold text-squid-ink bg-purple font-mono text-[14px] tracking-wide uppercase transition-all hover:bg-purple/90 hover:-translate-y-0.5 shadow-sm group cursor-pointer">
+              <a
+                href="https://www.instagram.com/aws_sbg_mitadtu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3.5 font-bold text-squid-ink bg-purple font-mono text-[14px] tracking-wide uppercase transition-all hover:bg-purple/90 hover:-translate-y-0.5 shadow-sm group"
+              >
                 Join the Community
                 <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </JoinCommunity>
-              <a href={builderCenterUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center whitespace-nowrap px-7 py-3.5 font-bold text-primary bg-surface border border-subtle font-mono text-[14px] tracking-wide uppercase transition-all hover:border-purple/50 hover:bg-elevated group">
-                Explore Builder Center
+              </a>
+              <a href="/services" className="inline-flex items-center justify-center px-8 py-3.5 font-bold text-primary bg-surface border border-subtle font-mono text-[14px] tracking-wide uppercase transition-all hover:border-purple/50 hover:bg-elevated group">
+                Explore AWS
                 <ArrowUpRight size={16} className="ml-2 text-secondary group-hover:text-purple transition-colors" />
               </a>
             </motion.div>
@@ -243,10 +246,15 @@ export default function Home() {
                 Start your cloud journey with us and become part of the next generation of builders on campus.
               </p>
               <div className="relative z-10">
-                <JoinCommunity className="inline-flex items-center justify-center px-6 py-3.5 font-bold text-squid-ink bg-purple font-mono text-[13px] tracking-wide uppercase transition-all hover:bg-purple/90 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] group/btn cursor-pointer">
+                <a
+                  href="https://www.instagram.com/aws_sbg_mitadtu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3.5 font-bold text-squid-ink bg-purple font-mono text-[13px] tracking-wide uppercase transition-all hover:bg-purple/90 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] group/btn"
+                >
                   Join the community
                   <ArrowUpRight size={16} className="ml-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                </JoinCommunity>
+                </a>
               </div>
             </div>
           </div>
@@ -341,24 +349,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-32 relative overflow-hidden bg-elevated border-t border-subtle">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="max-w-[800px] mx-auto px-[24px] relative z-10 text-center">
-          <h2 className="text-[32px] md:text-[48px] font-mono font-bold tracking-tight text-primary mb-6">
-            Ready to start building?
-          </h2>
-          <p className="text-secondary text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Join the AWS Student Builder Group at MIT ADT University and accelerate your journey in the cloud.
-          </p>
-          <JoinCommunity
-            className="inline-flex items-center justify-center w-full sm:w-auto bg-purple text-squid-ink hover:bg-purple/90 font-mono text-lg font-bold tracking-wide uppercase px-10 py-5 transition-all hover:-translate-y-0.5 group cursor-pointer"
-          >
-            Join the Community
-            <ArrowUpRight size={18} className="ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </JoinCommunity>
-        </div>
-      </section>
       
     </div>
   );

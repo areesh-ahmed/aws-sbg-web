@@ -13,7 +13,8 @@ export default function EventCard({ event, compact = false }) {
   const {
     type, title, subtitle, date, time, location, speaker, chiefGuest,
     facultyCoordinator, guestSpeakers, organizingTeam, attendees,
-    registrations, description, recap, isUpcoming, highlights, flow, winners, images
+    registrations, description, recap, isUpcoming, highlights, flow, winners, images,
+    registrationUrl
   } = event;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +50,9 @@ export default function EventCard({ event, compact = false }) {
       case "Workshop": return <MonitorPlay size={18} className="text-blue" />;
       case "Talk": return <Mic size={18} className="text-purple" />;
       case "Meetup": return <UsersRound size={18} className="text-green" />;
+      case "Conference": return <UsersRound size={18} className="text-purple" />;
+      case "Live Series":
+      case "Webinar": return <MonitorPlay size={18} className="text-amber-400" />;
       default: return <Calendar size={18} className="text-purple" />;
     }
   };
@@ -60,6 +64,9 @@ export default function EventCard({ event, compact = false }) {
       case "Workshop": return "blue";
       case "Talk": return "purple";
       case "Meetup": return "green";
+      case "Conference": return "purple";
+      case "Live Series":
+      case "Webinar": return "blue";
       default: return "subtle";
     }
   };
@@ -422,7 +429,18 @@ export default function EventCard({ event, compact = false }) {
               </div>
 
               {/* Footer */}
-              <div className="sticky bottom-0 bg-surface/95 backdrop-blur-md p-4 border-t border-subtle flex justify-end z-20">
+              <div className="sticky bottom-0 bg-surface/95 backdrop-blur-md p-4 border-t border-subtle flex items-center justify-end gap-3 z-20">
+                {registrationUrl && (
+                  <Button
+                    variant="primary"
+                    href={registrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    icon
+                  >
+                    RSVP on Meetup
+                  </Button>
+                )}
                 <Button variant="outline" onClick={() => setIsOpen(false)}>
                   Close Details
                 </Button>

@@ -1,5 +1,50 @@
 export const events = [
   {
+    id: "cloud-unlock",
+    type: "Live Series",
+    title: "Cloud Unlock",
+    subtitle: "LIVE Learning Series | AWS SBG MIT ADT × CloudAdhar",
+    date: "Starting 10 Oct 2026 (Ongoing)",
+    time: "Every Saturday & Sunday | 7:00 PM – 9:00 PM IST",
+    location: "LIVE (Virtual)",
+    speaker: "Gangadhar U. & Giriraj B.",
+    chiefGuest: "Industry Experts & Cloud Practitioners",
+    facultyCoordinator: "Prof. Dr. Rajani Sajjan",
+    organizingTeam: ["Gangadhar U. (CloudAdhar)", "Giriraj B. (President, AWS SBG)", "AWS SBG Core Team"],
+    attendees: 150,
+    description: "Cloud Unlock is a LIVE YouTube learning series by the AWS Student Builder Group at MIT ADT University X CloudAdhar, for students and aspiring professionals interested in AWS, Cloud, careers, certifications, and real-world technology.",
+    recap: "An interactive ongoing weekend series covering end-to-end AWS cloud computing, career opportunities, certification guidance, real-world case studies, and live audience Q&A.",
+    isUpcoming: true,
+    registrationUrl: "https://www.meetup.com/aws-sbg-at-mit-art-design-and-technology/events/316856929/?utm_version=v2&member_id=400224281",
+    highlights: [
+      "☁️ Comprehensive AWS & Cloud Computing learning from fundamentals to advanced concepts",
+      "💼 Career Opportunities in Cloud, resume tips, and interview readiness",
+      "🏆 Certification Guidance and roadmap for AWS Cloud Practitioner & Solutions Architect",
+      "🎙️ Industry Experts sharing practical insights and real-world enterprise architectures",
+      "🚀 Hands-on demonstrations and live cloud deployment walkthroughs",
+      "💬 Live Q&A, doubt solving, and vibrant community networking"
+    ],
+    flow: [
+      {
+        title: "Saturday Sessions (7:00 PM – 9:00 PM IST)",
+        time: "Every Saturday",
+        speaker: "Gangadhar U",
+        description: "Technical deep dives into core AWS services, cloud architecture design, serverless solutions, and hands-on demonstrations."
+      },
+      {
+        title: "Sunday Sessions (7:00 PM – 9:00 PM IST)",
+        time: "Every Sunday",
+        speaker: "Gangadhar U",
+        description: "Career guidance, cloud certifications roadmap, industry expert guest talks, and live Q&A session with attendees."
+      }
+    ],
+    images: [
+      { src: "/events/cloud-unlock/image1.png", caption: "Cloud Unlock - LIVE YouTube Learning Series" },
+      { src: "/events/cloud-unlock/image2.png", caption: "CloudAdhar × AWS SBG MIT ADT" },
+      { src: "/events/cloud-unlock/image3.png", caption: "Every Sat & Sun 7-9 PM IST | Learn • Connect • Build • Grow" }
+    ]
+  },
+  {
     id: "zero-to-aws-certified",
     type: "Bootcamp",
     title: "Zero to AWS Certified",

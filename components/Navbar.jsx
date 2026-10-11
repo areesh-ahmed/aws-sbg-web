@@ -7,7 +7,6 @@ import { Search, Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import PixelGraphic from "@/components/PixelGraphic";
-import JoinCommunity, { CommunityLinkList } from "@/components/JoinCommunity";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -92,12 +91,15 @@ export default function Navbar() {
           <button className="text-secondary hover:text-primary transition-colors p-2 rounded-sm hover:bg-surface" aria-label="Search">
             <Search size={18} />
           </button>
-          <JoinCommunity
-            className="flex items-center gap-1.5 bg-purple text-squid-ink px-4 py-2 rounded-sm font-mono text-[13px] font-bold tracking-wide uppercase hover:bg-purple/90 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(139,92,246,0.4)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          <a
+            href="https://www.instagram.com/aws_sbg_mitadtu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 bg-purple text-squid-ink px-4 py-2 rounded-sm font-mono text-[13px] font-bold tracking-wide uppercase hover:bg-purple/90 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(139,92,246,0.4)] hover:-translate-y-0.5 active:translate-y-0"
           >
             Join Community
             <ArrowUpRight size={16} />
-          </JoinCommunity>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -143,10 +145,15 @@ export default function Navbar() {
               })}
             </nav>
             <div className="mt-auto border-t border-subtle pt-6 flex flex-col gap-4">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-secondary">Join the community</span>
-              <div className="border border-subtle bg-surface p-1.5">
-                <CommunityLinkList onSelect={() => setMobileMenuOpen(false)} />
-              </div>
+              <a
+                href="https://www.instagram.com/aws_sbg_mitadtu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full gap-2 bg-purple text-squid-ink px-6 py-4 font-mono text-[16px] font-bold tracking-wide uppercase"
+              >
+                Join Community
+                <ArrowUpRight size={20} />
+              </a>
             </div>
           </motion.div>
         )}

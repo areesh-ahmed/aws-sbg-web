@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { communityLinks } from "@/data/community";
-import { socialIcons } from "./SocialIcons";
+import { Globe, Camera, Link as LinkIcon, Video, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -41,22 +39,16 @@ export default function Footer() {
             <p className="text-secondary text-sm max-w-sm mb-6 leading-relaxed">
               A student-led cloud community focused on learning, building projects, hosting events, and sharing technical resources.
             </p>
-            <div className="flex gap-4">
-              {communityLinks.map(({ id, name, url }, i) => {
-                const Icon = socialIcons[id];
-                return (
-                  <a
-                    key={id}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={name}
-                    className={`text-secondary hover:text-purple transition-colors p-2 ${i === 0 ? "-ml-2" : ""}`}
-                  >
-                    <Icon size={20} />
-                  </a>
-                );
-              })}
+            <div className="flex gap-4 items-center">
+              <a href="https://www.instagram.com/aws_sbg_mitadtu/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-purple transition-colors p-2 -ml-2" aria-label="Instagram">
+                <Camera size={20} />
+              </a>
+              <a href="https://www.meetup.com/aws-sbg-at-mit-art-design-and-technology/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-purple transition-colors p-2" aria-label="Meetup">
+                <Globe size={20} />
+              </a>
+              <a href="https://www.youtube.com/@CloudAdhar" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-purple transition-colors p-2" aria-label="YouTube">
+                <Video size={20} />
+              </a>
             </div>
           </div>
 
@@ -86,10 +78,11 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               {[
-                { name: 'AWS Documentation', url: '#' },
-                { name: 'AWS Skill Builder', url: '#' },
-                { name: 'AWS Builder Center', url: '#' },
-                { name: 'AWS Training', url: '#' },
+                { name: 'AWS Documentation', url: 'https://docs.aws.amazon.com/' },
+                { name: 'AWS Skill Builder', url: 'https://skillbuilder.aws/' },
+                { name: 'AWS Builder Center', url: 'https://community.aws/' },
+                { name: 'AWS Training & Certification', url: 'https://aws.amazon.com/training/' },
+                { name: 'AWS Free Tier', url: 'https://aws.amazon.com/free/' },
               ].map((link) => (
                 <li key={link.name}>
                   <a
